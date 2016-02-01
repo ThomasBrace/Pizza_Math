@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 5 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+		<head>
+			<title>Pizza Math</title>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<meta name="description" content="Split pizza bills">
+			<meta name="keywords" content="Split,pizza,bills,calculate offer, caulculate discount, figure out offer,">
+			<meta name="copyright" content="Coptright Thomas Brace- 2015">
+			<meta name="author" content="Thomas Idris Brace">
+			<meta name="email" content="Support@thomasbrace.com">
+			<meta name="Charset" content="UTF-8">
+			<meta name="Distribution" content="Global">
+			<meta name="Rating" content="General">
+		
+			<!-- Bootstrap -->
+			<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+		
+			<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+			<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+			<!--[if lt IE 9]>
+			  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+			<![endif]-->		
+		
+			<!-- jQuery -->
+			<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+		
+			<!-- Bootstrap Plugins -->
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		</head>
+		<body role="document">
+			
+			<!-- Fixed navbar -->
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+			  <div class="container">
+				<div class="navbar-header">
+				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				  <a class="navbar-brand" href="#">Pizza Math</a>
+				</div>
+			  </div>
+			</nav>
+			
+			<!-- Main content -->
+			<div class="container theme-showcase" role="main">
+
+				<!-- Main jumbotron for a primary marketing message or call to action -->
+				<div class="jumbotron">
+					<p></p>
+					<p class="lead">Problems splitting the bill evenly between a group and applying discounts fairly? you need....</p>
+					<h1>Pizza math</h1>
+					<footer>Solving arguments and saving friendships since 2015</footer>
+				</div>
+				
+			
+			</div>
+			
+			<!-- Offer Type -->
+			<div class="container">
+				<div class="well">
+				
+					<form class="form-inline">
+						
+						<!-- Main offer-->
+						<div class="form-group">
+							<label for="offerType">Offer Type</label>
+							<select id ="offerType" class="form-control">
+								<option value="discount">% Discount</option>
+								<option value="reduction">Money Off</option>
+								<option value="BOGOF">2 for the price of 1</option>
+							</select>
+						</div>
+						
+						<!--Offer Paramiter-->
+						<div id="offerParamiterWrapper" class="form-group has-error">
+							<label class="sr-only" for="offerParamiter">Percentage</label>
+							<div class="input-group">
+								<div class="input-group-addon">%</div>
+								<input type="text" class="form-control" id="offerParamiter" placeholder ="Percentage">
+							</div>
+						</div>
+						
+						<!-- Apply to item-->
+						<div class="form-group">
+							<label for="offerItem">On</label>
+							<select id ="offerItem" class="form-control">
+								<option value="all">Everything</option>
+								<option value="pizza">Pizzas</option>
+								<option value="side">Sides</option>
+								<option value="drink">Drinks</option>
+								<option value="dessert">Desserts</option>
+							</select>
+						</div>
+						
+					</form>
+				
+				
+				</div>
+			</div>		
+			
+				
+			<!-- Pizza Buddy Table -->
+			<div class="container">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Pizza Buddies</th>
+							<th>Food</th>
+							<th>Total</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody id="entry">
+						<tr>
+							<th>
+								<span class="Person item">Name</span>
+							</th>
+							<td>
+								<ul class="list-unstyled">
+									<span class="item">Order items</span
+								</ul>
+							</td>
+							<td>
+								<span>£</span><span class="pizzaMathTotal">00.00</span>
+							</td>
+							<td>
+								<div>
+									<button type="button" class="btn btn-success" data-toggle="modal" data-target="#orderModal">Edit Order</button>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colSpan="4">
+								<button type="button" id="addPerson" class="btn btn-primary">Add Pizza Buddy</button>	
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			
+			<!-- Order Modal -->
+			<div id="orderModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title">Order Details</h4>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group">
+									<label for="inputName">Pizza Buddy</label>
+									<input class="form-control" id="inputName" placeholder="Name">
+								</div>							
+							</form>
+							<!-- Pizza -->
+							<form class="form-inline">
+								<div class="form-group">
+									<label for="inputPizza">Pizza</label>
+									<input class="form-control" id="inputPizza" placeholder="Pizza">
+								</div>								
+								<div class="form-group">
+									<label class="sr-only" for="inputPizzaPrice">Price</label>
+									<div class="input-group">
+										<div class="input-group-addon">£</div>
+										<input class="form-control" id="inputPizzaPrice" placeholder="Price">
+									</div>
+								</div>
+							</form>
+							<!-- Side -->
+							<form class="form-inline">
+								<div class="form-group">
+									<label for="inputSide">Side</label>
+									<input class="form-control" id="inputSide" placeholder="Side">
+								</div>								
+								<div class="form-group">
+									<label class="sr-only" for="inputSidePrice">Price</label>
+									<div class="input-group">
+										<div class="input-group-addon">£</div>
+										<input class="form-control" id="inputSidePrice" placeholder="Price">
+									</div>
+								</div>
+							</form>							
+							<!-- Dessert -->
+							<form class="form-inline">
+								<div class="form-group">
+									<label for="inputDessert">Dessert</label>
+									<input class="form-control" id="inputDessert" placeholder="Dessert">
+								</div>								
+								<div class="form-group">
+									<label class="sr-only" for="inputDessertPrice">Price</label>
+									<div class="input-group">
+										<div class="input-group-addon">£</div>
+										<input class="form-control" id="inputDessertPrice" placeholder="Price">
+									</div>
+								</div>
+							</form>
+							<!-- Drink -->
+							<form class="form-inline">
+								<div class="form-group">
+									<label for="inputDrink">Drink</label>
+									<input class="form-control" id="inputDrink" placeholder="Drink">
+								</div>								
+								<div class="form-group">
+									<label class="sr-only" for="inputDrinkPrice">Price</label>
+									<div class="input-group">
+										<div class="input-group-addon">£</div>
+										<input class="form-control" id="inputDrinkPrice" placeholder="Price">
+									</div>
+								</div>
+							</form>
+							
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary">Update</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</body>
+		
+		<script>
+			$(window).load(function() {
+				
+				offerDropDowns();
+										
+			});
+			
+			
+			
+			function offerDropDowns() {
+				
+				$("#offerType").bind( "change", function(){
+					if ($("#offerType").val() == "discount") {
+						$("#offerParamiterWrapper").show('fast');
+						$(".input-group-addon").html("%");
+						$("#offerParamiter").attr("placeholder","Percentage");
+						placeholder ="Percentage"
+					} else if ($("#offerType").val() == "reduction") {
+						$("#offerParamiterWrapper").show('fast');
+						$(".input-group-addon").html("£");
+						$("#offerParamiter").attr("placeholder","Reduction");
+					} else {
+						$("#offerParamiterWrapper").hide('fast');					
+					}
+				});			
+			}
+		</script>
+	</html>
